@@ -27,7 +27,8 @@ export default function InterviewPage() {
         setAppConfig(config);
 
         // Get booking from backend
-        const bookingData = await getBooking(token);
+        // Token is already checked above, but TypeScript needs non-null assertion
+        const bookingData = await getBooking(token!);
         
         if (!bookingData) {
           setError('Interview not found');
