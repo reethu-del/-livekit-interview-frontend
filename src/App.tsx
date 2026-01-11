@@ -14,7 +14,7 @@ import { APP_CONFIG_DEFAULTS } from './app-config';
 import './index.css';
 
 function App() {
-  const [appConfig, setAppConfig] = useState<AppConfig>(APP_CONFIG_DEFAULTS);
+  const [_appConfig, setAppConfig] = useState<AppConfig>(APP_CONFIG_DEFAULTS);
   const [styles, setStyles] = useState<string>('');
 
   useEffect(() => {
