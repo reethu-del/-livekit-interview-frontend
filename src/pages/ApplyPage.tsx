@@ -44,9 +44,9 @@ export default function ApplyPage() {
   // Validate name - only letters and spaces
   const handleNameChange = (value: string) => {
     // Allow only letters, spaces, and common name characters (hyphens, apostrophes)
-    const cleaned = value.replace(/[^a-zA-Z\s'-]/g, '');
+    const cleaned = value.replace(/[^a-zA-Z '-]/g, '');
     setForm(f => ({ ...f, name: cleaned }));
-    if (cleaned && !/^[a-zA-Z\s'-]+$/.test(cleaned)) {
+    if (cleaned && !/^[a-zA-Z '-]+$/.test(cleaned)) {
       setValidationErrors(e => ({ ...e, name: 'Name can only contain letters and spaces' }));
     } else {
       setValidationErrors(e => {
@@ -153,7 +153,7 @@ export default function ApplyPage() {
       return;
     }
 
-    if (!/^[a-zA-Z\s'-]+$/.test(form.name.trim())) {
+    if (!/^[a-zA-Z '-]+$/.test(form.name.trim())) {
       setError('Name can only contain letters and spaces');
       setStatus('error');
       return;
@@ -262,7 +262,7 @@ export default function ApplyPage() {
                 value={form.name}
                 onChange={e => handleNameChange(e.target.value)}
                 placeholder="Enter your full name"
-                pattern="[a-zA-Z\s'-]+"
+                pattern="[a-zA-Z '-]+"
                 title="Name can only contain letters and spaces"
                 required
               />
